@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import TodoList from './TodoList';
 import AddList from './AddList';
-
-var data = [
-  "Task 1",
-  "Task 2",
-  "Task 3"
-]
+import request from 'superagent';
 
 class App extends Component {
   constructor(props) {
@@ -19,9 +14,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      myLists: data
-    })
+    var self = this;
+
+    request
+      .get('data.json')
+      .end((err, res) => {
+        if(err) throw err;
+        this.setState({
+          myLists: res.body
+        })
+      });    
   }
 
   addItem(tempItem) {
