@@ -2,21 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      aptBodyVisible: false,
-      orderBy: 'petName',
-      orderDir: 'asc',
-      queryText: '',
-      myAppointments: []
-    }
-  }
-
   render() {
     return (
       <div>
-        <h1>Today's Task</h1>
+        <h1>List Task</h1>
         <h3>Todo:</h3>
         <ul className="list-unstyled">
           <li>
@@ -41,8 +30,6 @@ class App extends Component {
             </div>
           </li>
         </ul>
-
-        <h3>Done:</h3>
       </div>
     );
   }
