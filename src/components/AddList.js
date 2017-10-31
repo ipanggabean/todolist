@@ -49,7 +49,7 @@ class AddList extends Component {
     renderDisplay() {
         return(
             <div>
-                <button type="button" class="btn btn-primary" onClick={(e) => this.editTask(e)}>Add New</button>
+                <button type="button" className="btn btn-primary" onClick={(e) => this.editTask(e)}>Add New</button>
             </div>
         )
     }
