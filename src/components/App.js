@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import TodoList from './TodoList';
+import AddList from './AddList';
 
 var data = [
   "Task 1",
@@ -22,6 +23,14 @@ class App extends Component {
     })
   }
 
+  addItem(tempItem) {
+    var tempTasks = this.state.myLists;
+    tempTasks.push(tempItem);
+    this.setState({
+      myLists: tempTasks
+    });
+  }
+
   render() {
     var renderList = this.state.myLists.map(function(item, index) {
       return(
@@ -32,6 +41,7 @@ class App extends Component {
     return (
       <div>
         <h1>List Task</h1>
+        <AddList addList={(e) => this.addItem(e)} />
         <h3>Todo:</h3>
         <ul className="list-unstyled">
           {renderList}
